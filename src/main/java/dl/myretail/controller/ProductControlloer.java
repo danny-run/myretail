@@ -61,12 +61,25 @@ public class ProductControlloer {
     }
 
     @PostMapping
-    public void createProduct(@RequestBody Product product) throws Exception{
+    public ResponseEntity<?> createProduct(@RequestBody Product product) throws Exception{
+        Long id = product.getId();
+
+        logger.info("Creating Product with id {}", id);
+
+        Product currentProduct = productService.findById(id);
+
+        if (currentProduct != null) {
+            logger.error("Unable to create. Product with id {} found.", id);
+            return new ResponseEntity(new CustomError("Unable to create. Product with id " + id + " found."),
+                    HttpStatus.CONFLICT);
+        }
+
         productService.createProduct(product);
+        return new ResponseEntity<Product>(currentProduct, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody Product product) throws Exception{
+    public ResponseEntity<?> updateProduct(@PathVariable("id") Long id, @RequestBody Product product) throws Exception{
         logger.info("Updating Product with id {}", id);
 
         Product currentProduct = productService.findById(id);
@@ -84,7 +97,7 @@ public class ProductControlloer {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id) throws Exception{
+    public ResponseEntity<?> deleteProduct(@PathVariable("id") Long id) throws Exception{
         logger.info("Fetching & Deleting Product with id {}", id);
 
         Product currentProduct = productService.findById(id);

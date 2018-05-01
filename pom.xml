@@ -76,10 +76,11 @@
 			<scope>test</scope>
 		</dependency>
 
-<!--		<dependency>
+		<dependency>
 			<groupId>org.jacoco</groupId>
 			<artifactId>jacoco-maven-plugin</artifactId>
-		</dependency>-->
+			<version>0.7.7.201606060606</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -88,10 +89,10 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-<!--			<plugin>
+			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-&lt;!&ndash;				<version>${jacoco.version}</version>&ndash;&gt;
+				<version>0.7.7.201606060606</version>
 				<executions>
 					<execution>
 						<id>prepare-agent</id>
@@ -113,10 +114,10 @@
 							<goal>report</goal>
 						</goals>
 						<configuration>
-							&lt;!&ndash; Sets the path to the file which contains the execution data. &ndash;&gt;
+							<!-- Sets the path to the file which contains the execution data. -->
 
 							<dataFile>target/jacoco.exec</dataFile>
-							&lt;!&ndash; Sets the output directory for the code coverage report. &ndash;&gt;
+							<!-- Sets the output directory for the code coverage report. -->
 							<outputDirectory>target/jacoco-ut</outputDirectory>
 						</configuration>
 					</execution>
@@ -126,7 +127,7 @@
 						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
 					</systemPropertyVariables>
 				</configuration>
-			</plugin>-->
+			</plugin>
 		</plugins>
 	</build>
 

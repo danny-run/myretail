@@ -99,12 +99,9 @@ public class ProductControllerTest {
         headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 
-/*        when(productService.findById(ID)).thenReturn(PRODUCT);*/
         when(productRepository.findById(ID)).thenReturn(OPTIONAL_WITH_VALUE);
         when(restTemplate.exchange(externalUrl, HttpMethod.GET, entity, String.class)).thenReturn(responseEntity);
         when(responseEntity.getBody()).thenReturn(RESPONSE);
-
-
 
         mvc.perform(get("/products/" + ID)
                 .accept(MediaType.APPLICATION_JSON))
@@ -123,7 +120,6 @@ public class ProductControllerTest {
         headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 
-/*        when(productService.findById(ID)).thenReturn(PRODUCT);*/
         when(productRepository.findById(ID)).thenReturn(OPTIONAL_WITH_VALUE);
         when(restTemplate.exchange(externalUrl, HttpMethod.GET, entity, String.class)).thenThrow(new RuntimeException());
 

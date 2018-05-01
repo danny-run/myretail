@@ -10,7 +10,7 @@ pipeline {
     }
 
     stages {
-
+ssh
         stage('checkout') {
             steps {
                 checkout scm

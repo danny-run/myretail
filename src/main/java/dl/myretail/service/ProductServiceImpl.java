@@ -76,9 +76,7 @@ public class ProductServiceImpl implements  ProductService{
 
                 product.setName(productName);
 
-
             }
-
 
         } catch (Exception ex) {
             logger.error(ex.getMessage());
@@ -139,19 +137,6 @@ public class ProductServiceImpl implements  ProductService{
         //GET request to perform Rest Call
         ResponseEntity<String> response = performRestCall (url);
 
-//        //handle Redirects since HttpUrlConnection by design wont automatically redirect from Htpp to Https
-//        HttpHeaders httpHeaders = response.getHeaders();
-//        HttpStatus statusCode = response.getStatusCode();
-//        logger.info("statusCode=" + statusCode);
-//
-//        if (statusCode.equals(HttpStatus.MOVED_PERMANENTLY) || statusCode.equals(HttpStatus.FOUND) || statusCode.equals(HttpStatus.SEE_OTHER)) {
-//            if (httpHeaders.getLocation() != null) {
-//                response = performRestCall (httpHeaders.getLocation().toString());
-//            } else {
-//                throw new RuntimeException("External URL is not accessible");
-//            }
-//        }
-
         return response.getBody();
 
     }
@@ -161,13 +146,9 @@ public class ProductServiceImpl implements  ProductService{
             HttpHeaders headers = new HttpHeaders();
             headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
             headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
-/*            headers.add("Referrer Policy", "no-referrer-when-downgrade");
-            headers.add("Upgrade-Insecure-Requests", "1");*/
             HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
 
             ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
-            //ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
 
             return response;
         } catch (Exception ex) {

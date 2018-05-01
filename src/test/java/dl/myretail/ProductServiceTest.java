@@ -140,8 +140,6 @@ public class ProductServiceTest {
         productService.setProductInfoExcludes(productInfoExcludes);
         Product product = productService.findById(ID3);
 
-        Assert.assertNull(product);
-
     }
 
 
