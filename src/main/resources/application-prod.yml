@@ -1,0 +1,30 @@
+spring.jmx:
+   enabled: false
+
+server:
+  port: 8090
+
+#database
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: ProductDb
+
+#external url
+product:
+  info:
+    url: http://redsky.target.com/v2/pdp/tcin
+    excludes: excludes=taxonomy,price,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics
+
+#logging
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: ERROR
+    com.dl.myretail: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: application.log
