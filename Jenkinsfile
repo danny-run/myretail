@@ -9,8 +9,11 @@ pipeline {
     }
 
     stages {
+
         stage('checkout') {
-            checkout scm
+            steps {
+                checkout scm
+            }
         }
 
         stage('check java') {
@@ -44,15 +47,6 @@ pipeline {
             sh "cp target/*.jar ."
             dockerImage = docker.build('danny/myretail', '.')
         }
-
-    /*    stage('publish docker') {
-            def dateFormat = new SimpleDateFormat("yyyy.MM.dd")
-            def date = new Date()
-            docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_jenac') {
-                dockerImage.push("${dateFormat.format(date)}.${env.BUILD_NUMBER}")
-                dockerImage.push 'latest'
-            }
-        }*/
 
     }
 }
