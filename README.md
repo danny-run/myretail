@@ -43,7 +43,7 @@ mvn clean verify
 * Exception handling is provided at the front layer. An meaningful error message will be generated based on error.
 * Muliple profiles (dev, prod, test) are provided to run the app in stages or testing environment.
 * CI/CD is supported by a jenkins pipeline and a jenkins file is created to manage the pipeline. The goal is to run various checks, compile and test on the service APIs and create a docker image/file of the product. Later, DevOps are able to deploy the docker image to any environment (such as prod).
-. Spring Boot Actuator and Swagger are introduced to the app thus the service APIs' information and health conditions can be viewed on-the-fly.
+* Spring Boot Actuator and Swagger are introduced to the app thus the service APIs' information and health conditions can be viewed on-the-fly.
 
 ## Deployment
 
