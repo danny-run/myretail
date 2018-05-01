@@ -12,21 +12,18 @@ Things to install.
 
 ```
 JDK 8
-MongoDB
-Maven
+MongoDB (brew install mongodb)
+Maven (https://maven.apache.org/install.html)do
 SpringBoot
-Docker
-Jenkins Container
+Docker (https://store.docker.com/editions/community/docker-ce-desktop-mac)
+Jenkins Container (https://jenkins.io/doc/book/installing/)
 ```
 ## Endpoint
 
-* # myretail
-A demo project of myretail service
-
-# endpoints
 * GET /products/{id} provides details of product id, including id, current price, currency code and name. The product name is retrieved from an external URL, which requires an HTTP to HTTPS redirect. In case that the product is not found or the product name is not provided by the external URL. An corresponding error message is return.
 * PUT /products/{id} provides an endpoint to update product current price.
 * GET /products, POST /products, DELETE /products/{id} provides features that help to test service APIs.
+
 ## Running the tests
 
 Both Integration test and unit test cases are provided. Also, Jacoco plugin is added to generate a coverage report.
@@ -34,6 +31,9 @@ Both Integration test and unit test cases are provided. Also, Jacoco plugin is a
 ```
 mvn clean verify
 ```
+## Running the service locally
+* Download 
+
 
 ## Deployment
 
