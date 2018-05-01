@@ -2,7 +2,7 @@
 import java.text.SimpleDateFormat
 
 pipeline {
-
+    agent any
 
     tools {
         maven 'Maven3'
@@ -33,12 +33,7 @@ pipeline {
 
         stage('backend tests') {
             steps {
-                try {
-                    sh "mvn verify"
-                } catch (err) {
-                    throw err
-                } finally {
-                }
+                sh "mvn verify"
             }
         }
 
@@ -49,8 +44,6 @@ pipeline {
             }
         }
 
-
-        def dockerImage
         stage('build docker') {
             steps {
                 sh "cp target/*.jar ."
