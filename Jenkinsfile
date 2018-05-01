@@ -45,9 +45,8 @@ pipeline {
 
         stage('build docker') {
             steps {
-                def dockerImage
                 sh "cp target/*.jar ."
-                dockerImage = docker.build('danny/myretail', '.')
+                docker.build('danny/myretail', '.')
             }
         }
 
