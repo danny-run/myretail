@@ -44,12 +44,12 @@ pipeline {
             }
         }
 
-        stage('build docker') {
+/*        stage('build docker') {
             steps {
                 sh "cp target/*.jar ."
                 dockerImage = docker.build('danny/myretail', '.')
             }
-        }
+        }*/
 
     }
 }
