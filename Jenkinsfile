@@ -39,17 +39,17 @@ pipeline {
 
         stage('packaging') {
             steps {
-                sh "mvn package"
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                sh "mvn -Dmaven.test.failure.ignore=true package"
             }
         }
 
-/*        stage('build docker') {
+        stage('build docker') {
             steps {
+                def dockerImage
                 sh "cp target/*.jar ."
                 dockerImage = docker.build('danny/myretail', '.')
             }
-        }*/
+        }
 
     }
 }
