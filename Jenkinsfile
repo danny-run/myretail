@@ -2,6 +2,11 @@
 import java.text.SimpleDateFormat
 
 node {
+
+    tools {
+        maven 'Maven3'
+    }
+
     stage('checkout') {
         checkout scm
     }
