@@ -36,6 +36,7 @@ mvn clean verify
 * Run mvn clean install.
 * Run mongod to launch a local mongo instance.
 * Run java -jar -Dspring.profiles.active=dev target/myretail-0.0.1-SNAPSHOT.jar to start the service APIs.
+* A Data Feeder runs for dev environment and populates data to MongoDB (such as product 13860428).
 * Try testing the service API using one preinstalled product id, http://localhost:8080/products/13860428
 
 ## Production Readies
