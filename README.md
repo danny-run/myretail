@@ -32,19 +32,25 @@ Both Integration test and unit test cases are provided. Also, Jacoco plugin is a
 mvn clean verify
 ```
 ## Running the service locally
-* Download 
+* Download the source code from https://github.com/danny-run/myretail.git, new_branch.
+* Run mvn clean install.
+* Run mongod to launch a local mongo instance.
+* Run java -jar -Dspring.profiles.active=dev target/myretail-0.0.1-SNAPSHOT.jar to start the service APIs.
+* Try testing the service API using one preinstalled product id, http://localhost:8080/products/13860428
 
+## Production Readies
+* Exception handling is provided at the front layer. An meaningful error message will be generated based on error.
+* Muliple profiles (dev, prod, test) are provided to run the app in stages or testing environment.
+* CI/CD is supported by a jenkins pipeline and a jenkins file is created to manage the pipeline. The goal is to run various checks, compile and test the service APIs and create a docker file of the product. Later, DevOps are able to deploy the docker image to any environment (such as prod).
+. Spring Boot Actuator and Swagger are introduced to the app thus the service APIs' information and health conditions can be viewed on-the-fly.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
-
-
-
+When the jenkins pipeline promotes code changes to the last stage and produces a docker image/file, a deployment could be processed using Kubernetes or OpenShift.
 
 ## Authors
 
-* **Danny Liu** - *Initial work* - (https://github.com/PurpleBooth)
+* **Danny Liu** - *Initial work* - (https://github.com/danny-run/myretail.git, new_branch)
 
 
 
