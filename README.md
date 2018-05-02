@@ -20,7 +20,7 @@ Jenkins Container (https://jenkins.io/doc/book/installing/)
 ```
 ## Endpoint
 
-* GET /products/{id} provides details of product id, including id, current price, currency code and name. The product name is retrieved from an external URL, which requires an HTTP to HTTPS redirect. In case that the product is not found or the product name is not provided by the external URL. An corresponding error message is return.
+* GET /products/{id} provides details of product id, including id, current price, currency code and name. The product name is retrieved from an external URL, which requires an HTTP to HTTPS redirect. In case that the product is not found or the product name is not provided by the external URL. A corresponding error message is returned.
 * PUT /products/{id} provides an endpoint to update product current price.
 * GET /products, POST /products, DELETE /products/{id} provides features that help to test service APIs.
 
@@ -40,7 +40,7 @@ mvn clean verify
 * Try testing the service API using one preinstalled product id, http://localhost:8080/products/13860428
 
 ## Production Readies
-* Exception handling is provided at the front layer. An meaningful error message will be generated based on error.
+* Exception handling is provided at the front layer. A meaningful error message will be generated based on error.
 * Muliple profiles (dev, prod, test) are provided to run the app in stages or testing environment.
 * CI/CD is supported by a jenkins pipeline and a jenkins file is created to manage the pipeline. The goal is to run various checks, compile and test on the service APIs and create a docker image of the product using a docker file. Later, DevOps are able to deploy the docker image to any environment (such as prod).
 * Spring Boot Actuator and Swagger are introduced to the app thus the service APIs' information and health conditions can be viewed on-the-fly.
