@@ -13,7 +13,7 @@ Things to install.
 ```
 JDK 8
 MongoDB (brew install mongodb)
-Maven (https://maven.apache.org/install.html)do
+Maven (https://maven.apache.org/install.html)
 SpringBoot
 Docker (https://store.docker.com/editions/community/docker-ce-desktop-mac)
 Jenkins Container (https://jenkins.io/doc/book/installing/)
