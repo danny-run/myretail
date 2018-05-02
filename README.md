@@ -6,7 +6,7 @@ A simple project that demo's service APIs for products. It is coded with Java/Sp
 
 The service is compiled using Maven, and runs on Spring Boot with MongoDB.
 
-### Prerequisites
+## Prerequisites
 
 Things to install.
 
