@@ -4,7 +4,7 @@ A simple project that demo's service APIs for products. It is coded with Java/Sp
 
 ## Getting Started
 
-The service is compiled using Maven, and runs on Spring Boot with MongoDB.
+The service is designed as a stateless API and thus can be replicated in a cloud environment rapidly. The service is compiled using Maven, and runs on Spring Boot with MongoDB.
 
 ## Prerequisites
 
